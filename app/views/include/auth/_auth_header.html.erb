@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+	<p align="right">
+			<%= link_to current_user.email, edit_user_registration_path,
+				class: "btn btn-dark btn-sm" %>
+	</p>	
+	<p align="right">
+		<%= link_to 'Log out', destroy_user_session_path,
+				method:	:delete,
+				class: "btn btn-dark btn-sm" %>
+	</p>	
+<% else %>
+	<p align="right">
+		<%= link_to 'Sign in', new_user_session_path,
+				class: "btn btn-dark btn-sm" %>
+		<%= link_to 'Sign up', new_user_registration_path,
+				class: "btn btn-dark btn-sm" %>
+	</p>
+<% end %>
