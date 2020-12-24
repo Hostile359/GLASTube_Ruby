@@ -1,0 +1,10 @@
+<%#= link_to 'All posts', posts_path %>
+<h1><%= @post.title %></h1>
+
+<%= video_tag(@post.video.url, alt: 'Video', controls: true) if @post.video? %>
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+|
+<%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>
+
+<p><%= @post.body %></p>

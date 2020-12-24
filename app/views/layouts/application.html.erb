@@ -28,6 +28,11 @@
             </form>
           </div>
           <div class="col">
+            <% if user_signed_in? %>
+              <%= link_to 'Add post', new_post_path %>
+            <% end %>
+          </div>
+          <div class="col">
             <div class="dropdown open" style="margin-left: 75%">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Account
