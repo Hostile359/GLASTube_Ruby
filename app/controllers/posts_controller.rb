@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order('created_at DESC')
+    # @user = user
   end
 
   def show; end
@@ -16,7 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path
+      redirect_to user_post_path
     else
       render :new
     end
@@ -26,7 +27,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post)
+      redirect_to user_post_path(@post)
     else
       render :edit
     end
@@ -34,7 +35,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    redirect_to user_post_path
   end
 
   private

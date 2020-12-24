@@ -29,7 +29,7 @@
           </div>
           <div class="col">
             <% if user_signed_in? %>
-              <%= link_to 'Add post', new_post_path %>
+              <%= link_to 'Add post', new_user_post_path(current_user.id) %>
             <% end %>
           </div>
           <div class="col">

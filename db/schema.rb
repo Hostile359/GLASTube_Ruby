@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_183029) do
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
     t.text "body"
     t.string "video"
