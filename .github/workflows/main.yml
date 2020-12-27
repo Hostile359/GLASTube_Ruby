@@ -11,7 +11,7 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_PASSWORD: Qwerty123
+          POSTGRES_PASSWORD: postgres
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby 2.7
@@ -34,5 +34,6 @@ jobs:
         run: bundle exec rubocop
       - name: RSpec
         run: |
+          cp config/database.ci.yml config/database.yml
           bundle exec rails db:setup
           bundle exec rspec
