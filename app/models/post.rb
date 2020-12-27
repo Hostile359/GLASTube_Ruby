@@ -2,6 +2,7 @@
 
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :comments
   mount_uploader :video, VideoUploader
   validates :user_id, presence: true
   validates :title, presence: true
