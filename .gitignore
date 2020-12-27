@@ -40,4 +40,4 @@ yarn-debug.log*
 public/uploads
 .idea
 package-lock.json
-database.yml
+config/database.yml
