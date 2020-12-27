@@ -1,17 +1,21 @@
 <% if user_signed_in? %>
 	<p align="center">
-		<%= link_to current_user.email, edit_user_registration_path,
+		<%= link_to current_user.login, edit_user_registration_path,
 			class: "btn btn-light btn-sm border border-dark" %>
 	</p>
 	<p align="center">
-		<%= link_to 'Log out', destroy_user_session_path,
-				method:	:delete,
-				class: "btn btn-light btn-sm  border border-dark" %>
+	    <%= link_to 'My channel', user_posts_path(current_user.id),
+	         class: "btn btn-light btn-sm  border border-dark" %>
 	</p>
-  <p align="center">
-    <%= link_to 'My channel', user_posts_path(current_user.id),
-                class: "btn btn-light btn-sm  border border-dark" %>
-  </p>
+	<p align="center">
+	    <%= link_to 'Add video', new_post_path, 
+	     		class: "btn btn-light btn-sm  border border-dark" %>
+	</p>
+	 <p align="center">
+		<%= link_to 'Log out', destroy_user_session_path,
+			method:	:delete,
+			class: "btn btn-light btn-sm  border border-dark" %>
+	</p>
 <% else %>
 	<p align="center">
 		<%= link_to 'Sign in', new_user_session_path,
