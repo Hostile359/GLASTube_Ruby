@@ -33,11 +33,8 @@
 yarn-debug.log*
 .yarn-integrity
 
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
 
+.rake_tasks~
 /coverage
 
 public/uploads
