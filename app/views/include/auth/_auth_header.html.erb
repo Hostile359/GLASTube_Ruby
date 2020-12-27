@@ -1,18 +1,20 @@
 <% if user_signed_in? %>
-	<p align="right">
-			<%= link_to current_user.email, edit_user_registration_path,
-				class: "btn btn-dark btn-sm" %>
-	</p>	
-	<p align="right">
+	<p align="center">
+		<%= link_to current_user.email, edit_user_registration_path,
+			class: "btn btn-light btn-sm border border-dark" %>
+	</p>
+	<p align="center">
 		<%= link_to 'Log out', destroy_user_session_path,
-				method:	:delete,
-				class: "btn btn-dark btn-sm" %>
+			method:	:delete,
+			class: "btn btn-light btn-sm border border-dark" %>
 	</p>	
 <% else %>
-	<p align="right">
+	<p align="center">
 		<%= link_to 'Sign in', new_user_session_path,
-				class: "btn btn-dark btn-sm" %>
+			class: "btn btn-light btn-sm border border-dark" %>
+	</p>
+	<p align="center">
 		<%= link_to 'Sign up', new_user_registration_path,
-				class: "btn btn-dark btn-sm" %>
+			class: "btn btn-light btn-sm border border-dark" %>
 	</p>
 <% end %>

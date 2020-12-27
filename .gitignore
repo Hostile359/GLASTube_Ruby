@@ -33,4 +33,7 @@
 yarn-debug.log*
 .yarn-integrity
 
+
 .rake_tasks~
+/coverage
+
