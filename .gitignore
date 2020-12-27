@@ -37,3 +37,6 @@ yarn-debug.log*
 .rake_tasks~
 /coverage
 
+public/uploads
+.idea
+package-lock.json

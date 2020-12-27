@@ -27,8 +27,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'bootstrap', '~> 5.0.0.alpha3'
+gem 'carrierwave', '~> 2.0'
 gem 'devise'
 gem 'jquery-rails'
+gem 'will_paginate', '~> 3.1.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
