@@ -2,8 +2,9 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  # root to: 'web#home_page'
-  root to: 'posts#index'
+  root to: 'web#index'
+  # root to: 'posts#index'
+  resources :posts
   resources :users do
     resources :posts
   end

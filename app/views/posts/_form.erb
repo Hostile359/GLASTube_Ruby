@@ -1,18 +1,31 @@
-<%= form_for user_post do |f| %>
-  <div>
+<% if @post.errors.any? %>
+  <div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for post do |f| %>
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :video %>
-    <%= f.file_field :video %>
+    <%= f.file_field :video, class: 'form-control' %>
   </div>
-
-  <%= f.submit %>
+  <br>
+  <div class="form-group">
+    <%= f.submit 'Add video', class: 'btn-primary' %>
+  </div>
 <% end %>

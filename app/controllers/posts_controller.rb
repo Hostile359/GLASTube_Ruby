@@ -4,11 +4,15 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.order('created_at DESC')
+    user_id = params[:user_id]
+    @user = User.find_by_id(user_id)
+    @posts = Post.where(user_id: user_id).order('created_at DESC').paginate(page: params[:page], per_page: 5)
     # @user = user
   end
 
-  def show; end
+  def show
+    @user = User.find_by_id(@post.user_id)
+  end
 
   def new
     @post = Post.new
@@ -16,8 +20,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
-      redirect_to user_post_path
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -27,7 +32,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to user_post_path(@post)
+      redirect_to post_path(@post)
     else
       render :edit
     end
@@ -35,7 +40,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to user_post_path
+    redirect_to root_path
   end
 
   private
