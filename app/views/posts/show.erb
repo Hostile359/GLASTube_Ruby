@@ -16,3 +16,16 @@
     <p class="card-text"><%= @post.body %></p>
   </div>
 </div>
+
+<h2>Comments:</h2>
+<% @post.comments.each do |comment| %>
+	<div class="alert alert-light">
+		<br><strong><%= comment.username %></strong>[<%= comment.created_at %>]: <%= comment.comment %> 
+	</div>
+<% end %>
+
+<%= form_for([@post, @post.comments.build]) do |f| %>
+	<p><%= f.text_field(:username, {:class => 'form-control'}) %></p>
+	<p><%= f.text_area(:comment, {:class => 'form-control'}) %></p>
+	<p><%= f.submit("Add comment", {:class => 'btn btn-warning'}) %></p>
+<% end %>
