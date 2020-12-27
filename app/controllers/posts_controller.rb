@@ -5,13 +5,13 @@ class PostsController < ApplicationController
 
   def index
     user_id = params[:user_id]
-    @user = User.find_by_id(user_id)
+    @user = User.find_by(id: user_id)
     @posts = Post.where(user_id: user_id).order('created_at DESC').paginate(page: params[:page], per_page: 5)
     # @user = user
   end
 
   def show
-    @user = User.find_by_id(@post.user_id)
+    @user = User.find_by(id: @post.user_id)
   end
 
   def new
