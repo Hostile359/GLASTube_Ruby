@@ -1,24 +1,52 @@
 require 'rails_helper'
+require 'support/factory_bot'
 
 RSpec.describe User, type: :model do
   describe 'validation tests' do
-    it 'exists user' do
-      user = described_class.new(email: 'alex@mail.ru')
-      expect(user.valid?).to eq(false)
-    end
-
-    it 'save user' do
-      user = described_class.new(email: 'alex@mail.ru')
-      expect(user.save).to eq(false)
+    it 'add user' do
+      user = build(:user, email: 'alex@gmail.ru', login: 'Alex')
+      expect(user.info_user).to eq 'alex@gmail.ru Alex'
     end
 
     it 'delete user' do
-      user = described_class.new(email: 'alex@mail.ru')
+      user = build(:user, email: 'alex@gmail.ru', login: 'Alex')
       expect(user.delete).to eq(user)
     end
 
-    it 'select users' do
-      expect(described_class.count).to eq(0)
+    it 'set email' do
+      user = build(:user, email: 'alex@gmail.ru')
+      user.email = 'alex1234@gmail.ru'
+      expect(user.email).to eq 'alex1234@gmail.ru'
+    end
+
+    it 'set login' do
+      user = build(:user, login: 'Korben')
+      user.login = 'KorbenDaIlas'
+      expect(user.login).to eq 'KorbenDaIlas'
+    end
+
+    it 'set encrypted_password' do
+      user = build(:user, encrypted_password: '$312312asad13qwe$')
+      user.encrypted_password = '$123asd123$'
+      expect(user.encrypted_password).to eq '$123asd123$'
+    end
+
+    it 'set reset_password_token' do
+      user = build(:user, reset_password_token: '$312312asad13qwe$')
+      user.reset_password_token = '$123asd123$'
+      expect(user.reset_password_token).to eq '$123asd123$'
+    end
+
+    it 'set reset_password_sent_at' do
+      user = build(:user, reset_password_sent_at: 'Mon, 25 Dec 1999 00:00:00.000000000 UTC +00:00')
+      user.reset_password_sent_at = 'Mon, 28 Dec 2020 00:00:00.000000000 UTC +00:00'
+      expect(user.reset_password_sent_at).to eq 'Mon, 28 Dec 2020 00:00:00.000000000 UTC +00:00'
+    end
+
+    it 'set remember_created_at' do
+      user = build(:user, remember_created_at: 'Mon, 25 Dec 1999 00:00:00.000000000 UTC +00:00')
+      user.remember_created_at = 'Mon, 28 Dec 2020 00:00:00.000000000 UTC +00:00'
+      expect(user.remember_created_at).to eq 'Mon, 28 Dec 2020 00:00:00.000000000 UTC +00:00'
     end
   end
 end
