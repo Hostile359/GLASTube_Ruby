@@ -4,19 +4,19 @@ require 'support/factory_bot'
 RSpec.describe User, type: :model do
   describe 'validation tests' do
     it 'add user' do
-      user = build(:user, email: 'alex@gmail.ru', login: 'Alex')
-      expect(user.info_user).to eq 'alex@gmail.ru Alex'
+      user = build(:user, email: 'alex@gmail.com', login: 'Alex')
+      expect(user.info_user).to eq 'alex@gmail.com Alex'
     end
 
     it 'delete user' do
-      user = build(:user, email: 'alex@gmail.ru', login: 'Alex')
+      user = build(:user, email: 'alex@gmail.com', login: 'Alex')
       expect(user.delete).to eq(user)
     end
 
     it 'set email' do
-      user = build(:user, email: 'alex@gmail.ru')
-      user.email = 'alex1234@gmail.ru'
-      expect(user.email).to eq 'alex1234@gmail.ru'
+      user = build(:user, email: 'alex@gmail.com')
+      user.email = 'alex1234@gmail.com'
+      expect(user.email).to eq 'alex1234@gmail.com'
     end
 
     it 'set login' do
