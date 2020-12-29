@@ -1,24 +1,48 @@
-# README
+# GLASTube
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+![Unit Tests & Lint](https://github.com/Hostile359/GLASTube_Ruby/workflows/Unit%20Tests%20&%20Lint/badge.svg)
 
-* Ruby version
+## Requirements
+  ruby 2.7.2<br>
+  rails 6.1.0<br>
+  postgresql<br>
+  yarn<br>
 
-* System dependencies
+## Install
 
-* Configuration
+```bash
+bundle install
+```
 
-* Database creation
+## Database preparing
+```bash
+sudo su - postgres
+psql
+\password postgres
+create role rails_dev with createdb login password 'Qwerty123';
+```
 
-* Database initialization
+## Setup database
+```bash
+rails db:setup
+rails db:migrate
+```
 
-* How to run the test suite
+## Run server
+```bash
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Run test
 
-* Deployment instructions
+```bash
+rspec
+```
 
-* ...
+## Run rubocop
+
+```bash
+rubocop
+rubocop -a # Auto-correct offenses
+```
