@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def info_user
+    "#{email} #{login}"
+  end
 end
