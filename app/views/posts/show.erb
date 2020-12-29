@@ -6,8 +6,8 @@
   <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
   <%#=current_user.id %>
 <% end %>
-
-<%= video_tag(@post.video.url, alt: 'Video', controls: true) if @post.video? %>
+<br>
+<%= video_tag(@post.video.url, alt: 'Video', controls: true, size: "1280x720") if @post.video? %>
 
 <h2><%= link_to  @user.login, user_posts_path(@post.user_id) %></h2>
 
