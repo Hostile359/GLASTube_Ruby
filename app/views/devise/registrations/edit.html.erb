@@ -5,12 +5,12 @@
 
   <div align="center" class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
   </div>
 
    <div align="center" class="field"><br />
     <%= f.label :login %><br />
-    <%= f.text_field :login, autofocus: true, autocomplete: "login" %>
+    <%= f.text_field :login, autofocus: true, autocomplete: "login", required: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -32,7 +32,7 @@
 
   <div align="center" class="field"><br />
     <%= f.label :current_password %> <i></i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", required: true %>
   </div>
 
   <div align="center" class="actions"><br />
