@@ -9,7 +9,7 @@
 <br>
 <%= video_tag(@post.video.url, alt: 'Video', controls: true, size: "1280x720") if @post.video? %>
 
-<h2><%= link_to  @user.login, user_posts_path(@post.user_id) %></h2>
+<h2><%= link_to  @post.user.login, user_posts_path(@post.user_id) %></h2>
 
 <div class="card" >
   <div class="card-block">
