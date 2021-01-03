@@ -9,11 +9,10 @@ class PostsController < ApplicationController
     @posts = Post.where(user_id: user_id).order('created_at DESC').paginate(page: params[:page], per_page: 5)
   end
 
-  def show
-    @user = User.find_by(id: @post.user_id)
-  end
+  def show; end
 
   def new
+    redirect_to '/users/sign_in' unless user_signed_in?
     @post = Post.new
   end
 
@@ -27,7 +26,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    redirect_to root_path if !user_signed_in? || current_user.id != @post.user.id
+  end
 
   def update
     if @post.update(post_params)
@@ -38,6 +39,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    redirect_to root_path if !user_signed_in? || current_user.id != @post.user.id
     @post.destroy
     redirect_to root_path
   end
