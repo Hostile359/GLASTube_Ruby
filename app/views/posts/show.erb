@@ -20,11 +20,12 @@
 <h2>Comments:</h2>
 <% @post.comments.each do |comment| %>
 	<div class="alert alert-light">
-		<br><strong><%= comment.user_id %></strong>[<%= comment.created_at %>]: <%= comment.comment %> 
+		<br><strong><%= @post.user.login %></strong>[<%= comment.created_at %>]: <%= comment.comment %> 
 	</div>
 <% end %>
-
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <p>text:<%= f.text_area(:comment, {:class => 'form-control'}) %></p>
-	<p><%= f.submit("Add comment", {:class => 'btn btn-warning'}) %></p>
+<% if user_signed_in? %>
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+    <p>text:<%= f.text_area(:comment, {:class => 'form-control'}) %></p>
+	  <p><%= f.submit("Add comment", {:class => 'btn btn-warning'}) %></p>
+  <% end %>
 <% end %>
