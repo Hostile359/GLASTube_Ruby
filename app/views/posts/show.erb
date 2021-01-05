@@ -1,14 +1,13 @@
-<%#= link_to 'All posts', posts_path %>
 <h1><%= @post.title %></h1>
 <% if user_signed_in? and current_user.id == @post.user_id %>
   <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' %>
   |
   <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
-  <%#=current_user.id %>
 <% end %>
 <br>
-<%= video_tag(@post.video.url, alt: 'Video', controls: true, size: "1280x720") if @post.video? %>
-
+<% if @post.video.attached? %>
+  <%= video_tag(url_for(@post.video), alt: 'Video', controls: true, size: "1280x720") %>
+<% end %>
 <h2><%= link_to  @post.user.login, user_posts_path(@post.user_id) %></h2>
 
 <div class="card" >
