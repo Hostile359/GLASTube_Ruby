@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
-    username { 'MyString' }
+    user_id { 1 }
     comment { 'MyString' }
     post_id { 1 }
   end
