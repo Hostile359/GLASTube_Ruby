@@ -4,14 +4,14 @@ require 'support/factory_bot'
 RSpec.describe Comment, type: :model do
   describe 'validation tests' do
     it 'add comment' do
-      comment = build(:comment, username: '_AkTep', comment: 'Хорошее видео', post_id: 3)
-      expect(comment.info_comment).to eq '_AkTep Хорошее видео'
+      comment = build(:comment, user_id: 1, comment: 'Хорошее видео', post_id: 3)
+      expect(comment.info_comment).to eq '1 Хорошее видео'
     end
 
     it 'test set username' do
-      comment = build(:comment, username: 'Korben')
-      comment.username = '10'
-      expect(comment.username).to eq '10'
+      comment = build(:comment, user_id: 2)
+      comment.user_id = 10
+      expect(comment.user_id).to eq 10
     end
 
     it 'test set comment' do

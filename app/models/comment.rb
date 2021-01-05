@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   def info_comment
-    "#{username} #{comment}"
+    "#{user_id} #{comment}"
   end
 
   belongs_to :post
