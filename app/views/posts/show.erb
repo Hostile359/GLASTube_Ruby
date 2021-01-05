@@ -20,7 +20,7 @@
 <h2>Comments:</h2>
 <% @post.comments.each do |comment| %>
 	<div class="alert alert-light">
-		<br><strong><%= @post.user.login %></strong>[<%= comment.created_at %>]: <%= comment.comment %> 
+		<br><strong><%= comment.user.login %></strong>[<%= comment.created_at %>]: <%= comment.comment %> 
 	</div>
 <% end %>
 <% if user_signed_in? %>
