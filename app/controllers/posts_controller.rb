@@ -12,8 +12,8 @@ class PostsController < ApplicationController
   def show; end
 
   def new
-    redirect_to '/users/sign_in' unless user_signed_in?
     @post = Post.new
+    authorize @post unless user_signed_in?
   end
 
   def create
