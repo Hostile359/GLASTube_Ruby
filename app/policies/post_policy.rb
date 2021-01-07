@@ -12,15 +12,15 @@ class PostPolicy < ApplicationPolicy
   end
 
   def edit?
-    true if user.present? && user == post.user
+    true if user.present? && user == post.user || user.admin?
   end
 
   def update?
-    true if user.present? && user == post.user
+    true if user.present? && user == post.user || user.admin?
   end
 
   def destroy?
-    true if user.present? && user == post.user
+    true if user.present? && user == post.user || user.admin?
   end
 
   class Scope < Scope

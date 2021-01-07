@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def info_user
     "#{email} #{login}"
   end
+
+  def admin?
+    admin
+  end
 end
