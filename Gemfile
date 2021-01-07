@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'devise'
 gem 'jquery-rails'
+gem 'pundit'
 gem 'will_paginate', '~> 3.1.0'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -61,6 +62,7 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'shoulda-matchers'
   gem 'webdrivers'
 end
 
