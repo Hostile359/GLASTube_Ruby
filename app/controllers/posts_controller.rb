@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path if !user_signed_in? || current_user.id != @post.user.id
+    authorize @post
   end
 
   def update
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    redirect_to root_path if !user_signed_in? || current_user.id != @post.user.id
+    authorize @post
     @post.destroy
     redirect_to root_path
   end
@@ -52,5 +52,6 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+    authorize @post
   end
 end
